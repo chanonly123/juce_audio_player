@@ -1,13 +1,2 @@
-plugins {
-    id 'maven-publish'
-}
-
-publishing {
-    publications {
-        mavenAar(MavenPublication) {
-            groupId = 'com.github.chanonly123'
-            artifactId = 'JuceMixPlayer'
-            artifact(file('dist/juce_lib.aar'))
-        }
-    }
-}
+configurations.maybeCreate("default")
+artifacts.add("default", file('dist/juce_lib.aar'))

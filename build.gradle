@@ -1,6 +1,29 @@
-apply plugin: 'maven-publish'
-    
-group = 'com.github.chanonly123'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
-configurations.maybeCreate("default")
-artifacts.add("default", file('dist/juce_lib.aar'))
+android {
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 34
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            groupId = 'com.github.chanonly123'
+            artifactId = 'JuceMixPlayer'
+            artifact(file('dist/juce_lib.aar'))
+        }
+    }
+}

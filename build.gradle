@@ -1,2 +1,3 @@
+group = "com.lib"
 configurations.maybeCreate("default")
 artifacts.add("default", file('dist/juce_lib.aar'))
